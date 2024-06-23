@@ -14,6 +14,7 @@ let questions = ["Who was the first American woman in space? " ,"True or false: 
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
+let grade = 0;
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -22,50 +23,100 @@ if (candidateName){
   console.log();
 }
 }
+//candidateAnswers[" "] = input.question(0+ 1 + ") " + questions[" "]);
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-
-  for (let i = 0; i < questions.length; i++){
+   for (let i = 0; i < questions.length; i++){
    candidateAnswers[i] = input.question(i + 1 + ") " + questions[i]);
-     if (correctAnswers[i] && candidateAnswers[i]){
+     if (correctAnswers[i] === candidateAnswers[i]){
+      grade ++
       console.log(`Your Answer: ${candidateAnswers[i]}`)
       console.log(`Correct Answer: ${correctAnswers[i]}`)
       console.log();
-      }
+      console.log(grade);
+      
+      } else {
+          console.log(`Your Answer: ${candidateAnswers[i]}`);
+          console.log(`Correct Answer: ${correctAnswers[i]}`);
+          console.log();
+          
+        }
+
+      } 
   } 
- 
-}
+  
 
 
 
 
 function gradeQuiz(candidateAnswers) {
 
+  candidateAnswers = grade / questions.length * 100
+  if (candidateAnswers === 100){
+    console.log("Perfect");
+  } 
+  else if(candidateAnswers === 80){
+    console.log("You have an 80, good job");
+  }
+  else if(candidateAnswers === 60) {
+    console.log("You have an 60, good job")
+  }
+  else if(candidateAnswers === 40) {
+    console.log("You have an 40")
+  }
+  else if(candidateAnswers === 20){
+    console.log("You have an 20")
+  }
+  else {
+    console.log("Fail")
+  }
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-if (candidateAnswers === correctAnswers){
-  console.log("Correct!");
-} else {
-  //console.log("Incorrect, please try again");
-}
+//if (grade  === 100){
+  //console.log("Aced it!");
+/*if (candidateAnswers === correctAnswers){
+  console.log("correct");
+}*/
 
-
-  let grade;  //TODO 3.2 use this vari
+//TODO 3.2 use this vari
 //able to calculate the candidates score.
+//grade = grade / questions.length * 100
 
-
-
-   return grade;
+/*(for (let i = 0; i < questions.length; i++) {
+     if (correctAnswers[i] === candidateAnswers[i]){
+       grade ++}*/
+//grade = grade / questions.length * 100
+/*if (grade === 100){
+  console.log("Perfect");
+} 
+else if(grade === 80){
+  console.log("You have an 80, good job");
+}
+else if(grade === 60) {
+  console.log("You have an 60, good job")
+}
+else if(grade === 40) {
+  console.log("You have an 40")
+}
+else if(grade === 20){
+  console.log("You have an 20")
+}
+else {
+  console.log("Fail")
+}*/
+return candidateAnswers;
 }
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Candidate Name: "+candidateName);
+   console.log("Candidate Name: " + candidateName);
    console.log();
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
+
+
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
