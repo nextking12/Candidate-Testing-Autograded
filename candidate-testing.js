@@ -14,7 +14,7 @@ let questions = ["Who was the first American woman in space? " ,"True or false: 
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
-let grade = 0;
+//let grade = 0;
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -29,22 +29,24 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
    for (let i = 0; i < questions.length; i++){
    candidateAnswers[i] = input.question(i + 1 + ") " + questions[i]);
-     if (correctAnswers[i] === candidateAnswers[i]){
+
+     /*if (correctAnswers[i] === candidateAnswers[i]){
       grade ++
-      console.log(`Your Answer: ${candidateAnswers[i]}`)
-      console.log(`Correct Answer: ${correctAnswers[i]}`)
+      console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}`)
+      //console.log(`Correct Answer: ${correctAnswers[i]}`)
       console.log();
       console.log(grade);
       
       } else {
-          console.log(`Your Answer: ${candidateAnswers[i]}`);
-          console.log(`Correct Answer: ${correctAnswers[i]}`);
-          console.log();
+          console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}`);
+          //console.log(`Correct Answer: ${correctAnswers[i]}`);
+          console.log();*/
           
         }
-
+        //console.log(candidateAnswers);
+        return candidateAnswers;
       } 
-  } 
+   
   
 
 
@@ -52,8 +54,8 @@ function askQuestion() {
 
 function gradeQuiz(candidateAnswers) {
 
-  candidateAnswers = grade / questions.length * 100
-  if (candidateAnswers === 100){
+  //candidateAnswers = grade / questions.length * 100
+ /* if (candidateAnswers === 100){
     console.log("Perfect");
   } 
   else if(candidateAnswers === 80){
@@ -70,8 +72,13 @@ function gradeQuiz(candidateAnswers) {
   }
   else {
     console.log("Fail")
-  }
+  }*/
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  for (i = 0; i < questions.length; i++) {
+    if (candidateAnswers[i] || !candidateAnswers[i]) {
+      console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`)
+    } 
+  }
 //if (grade  === 100){
   //console.log("Aced it!");
 /*if (candidateAnswers === correctAnswers){
@@ -80,25 +87,36 @@ function gradeQuiz(candidateAnswers) {
 
 //TODO 3.2 use this vari
 //able to calculate the candidates score.
-//grade = grade / questions.length * 100
+
+ let grade = "";
+
+ for (i = 0; i < questions.length; i++) {
+  if (correctAnswers[i].toLowerCase === candidateAnswers[i].toLowerCase){
+  grade ++
+  }
+ }
+
+
 
 /*(for (let i = 0; i < questions.length; i++) {
      if (correctAnswers[i] === candidateAnswers[i]){
        grade ++}*/
-//grade = grade / questions.length * 100
-/*if (grade === 100){
+       
+       
+candidateAnswers = grade / questions.length * 100
+if (candidateAnswers === 100){
   console.log("Perfect");
 } 
-else if(grade === 80){
+/*if(candidateAnswers === 80){
   console.log("You have an 80, good job");
 }
-else if(grade === 60) {
+else if(candidateAnswers === 60) {
   console.log("You have an 60, good job")
 }
-else if(grade === 40) {
+else if(candidateAnswers === 40) {
   console.log("You have an 40")
 }
-else if(grade === 20){
+else if(candidateAnswers === 20){
   console.log("You have an 20")
 }
 else {
