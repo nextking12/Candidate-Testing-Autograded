@@ -18,111 +18,51 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-candidateName = input.question("What's your name?: ");
-if (candidateName){
-  console.log();
-}
+candidateName = input.question("What's your name?: \n");
+
 }
 //candidateAnswers[" "] = input.question(0+ 1 + ") " + questions[" "]);
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
+
    for (let i = 0; i < questions.length; i++){
    candidateAnswers[i] = input.question(i + 1 + ") " + questions[i]);
 
-     /*if (correctAnswers[i] === candidateAnswers[i]){
-      grade ++
-      console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}`)
-      //console.log(`Correct Answer: ${correctAnswers[i]}`)
-      console.log();
-      console.log(grade);
-      
-      } else {
-          console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}`);
-          //console.log(`Correct Answer: ${correctAnswers[i]}`);
-          console.log();*/
-          
-        }
-        //console.log(candidateAnswers);
-        return candidateAnswers;
-      } 
-   
+    }
+     
+ } 
+ // console.log(candidateAnswers);
   
-
-
-
-
 function gradeQuiz(candidateAnswers) {
 
-  //candidateAnswers = grade / questions.length * 100
- /* if (candidateAnswers === 100){
-    console.log("Perfect");
-  } 
-  else if(candidateAnswers === 80){
-    console.log("You have an 80, good job");
-  }
-  else if(candidateAnswers === 60) {
-    console.log("You have an 60, good job")
-  }
-  else if(candidateAnswers === 40) {
-    console.log("You have an 40")
-  }
-  else if(candidateAnswers === 20){
-    console.log("You have an 20")
-  }
-  else {
-    console.log("Fail")
-  }*/
+ 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for (i = 0; i < questions.length; i++) {
     if (candidateAnswers[i] || !candidateAnswers[i]) {
       console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`)
     } 
   }
-//if (grade  === 100){
-  //console.log("Aced it!");
-/*if (candidateAnswers === correctAnswers){
-  console.log("correct");
-}*/
+
 
 //TODO 3.2 use this vari
 //able to calculate the candidates score.
 
- let grade = "";
+ let grade = candidateAnswers.length/ questions.length * 100
 
  for (i = 0; i < questions.length; i++) {
-  if (correctAnswers[i].toLowerCase === candidateAnswers[i].toLowerCase){
-  grade ++
+  if (correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
+  
   }
  }
-
-
-
-/*(for (let i = 0; i < questions.length; i++) {
-     if (correctAnswers[i] === candidateAnswers[i]){
-       grade ++}*/
        
-       
-candidateAnswers = grade / questions.length * 100
-if (candidateAnswers === 100){
+if (grade === 100){
   console.log("Perfect");
-} 
-/*if(candidateAnswers === 80){
-  console.log("You have an 80, good job");
+} else if (grade === 80) {
+  console.log("You have 80");
 }
-else if(candidateAnswers === 60) {
-  console.log("You have an 60, good job")
-}
-else if(candidateAnswers === 40) {
-  console.log("You have an 40")
-}
-else if(candidateAnswers === 20){
-  console.log("You have an 20")
-}
-else {
-  console.log("Fail")
-}*/
-return candidateAnswers;
+
+return grade;
 }
 
 function runProgram() {
