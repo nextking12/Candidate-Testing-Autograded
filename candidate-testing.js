@@ -61,6 +61,8 @@ grade = numOfCorrectAns.length / questions.length * 100;
 let gradeStatement =  `>>>> Overall Grade: ${grade}% (${numOfCorrectAns.length} of ${questions.length}) responses correct<<<<\n>>>>Status: PASSED<<<<`;
 if (grade <= 100 && grade >= 60){
      console.log(gradeStatement);
+} else {
+  console.log(`>>>> Overall Grade: ${grade}% (${numOfCorrectAns.length} of ${questions.length}) responses correct<<<<\n>>>>Status: FAILED<<<<`);
 }
 
 return grade;
