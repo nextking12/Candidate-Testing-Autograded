@@ -14,6 +14,8 @@ let questions = ["Who was the first American woman in space? " ,"True or false: 
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
+
+//let finalAnswers = [];
 //let grade = 0;
 
 function askForName() {
@@ -28,34 +30,35 @@ function askQuestion() {
 
    for (let i = 0; i < questions.length; i++){
    candidateAnswers[i] = input.question(i + 1 + ") " + questions[i]);
-
+    console.log();
     }
      
  } 
  // console.log(candidateAnswers);
   
 function gradeQuiz(candidateAnswers) {
-
+  console.log(candidateAnswers);
  
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for (i = 0; i < questions.length; i++) {
-    if (candidateAnswers[i] || !candidateAnswers[i]) {
       console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`)
-    } 
-  }
+      } 
+  
 
 
 //TODO 3.2 use this vari
 //able to calculate the candidates score.
 
- let grade = candidateAnswers.length/ questions.length * 100
+ //let grade = finalAnswers.length / questions.length * 100
+ //let finalAnswers = [];
+ let grade = [];//candidateAnswers / questions.length * 100
 
  for (i = 0; i < questions.length; i++) {
   if (correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
-  
+     grade.push(correctAnswer[i])
   }
  }
-       
+  grade = grade.length / questions.length * 100;     
 if (grade === 100){
   console.log("Perfect");
 } else if (grade === 80) {
