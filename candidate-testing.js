@@ -15,15 +15,14 @@ let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
 
-//let finalAnswers = [];
-//let grade = 0;
+
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 candidateName = input.question("What's your name?: \n");
 
 }
-//candidateAnswers[" "] = input.question(0+ 1 + ") " + questions[" "]);
+
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
@@ -34,7 +33,7 @@ function askQuestion() {
     }
      
  } 
- // console.log(candidateAnswers);
+ 
   
 function gradeQuiz(candidateAnswers) {
   console.log(candidateAnswers);
@@ -49,16 +48,16 @@ function gradeQuiz(candidateAnswers) {
 //TODO 3.2 use this vari
 //able to calculate the candidates score.
 
- //let grade = finalAnswers.length / questions.length * 100
- //let finalAnswers = [];
- let grade = [];//candidateAnswers / questions.length * 100
+ 
+ let grade = [];
 
  for (i = 0; i < questions.length; i++) {
   if (correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
      grade.push(correctAnswer[i])
   }
  }
-  grade = grade.length / questions.length * 100;     
+
+grade = grade.length / questions.length * 100;     
 if (grade === 100){
   console.log("Perfect");
 } else if (grade === 80) {
